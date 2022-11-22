@@ -1,5 +1,6 @@
 ﻿using Booking.Payment.Application.Contracts;
 using Booking.Payment.Domain.Dictionaries;
+using Booking.Payment.Persistance.Seed;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using System.Diagnostics.CodeAnalysis;
@@ -10,9 +11,16 @@ namespace Booking.Payment.Persistance.Context
     {
         public DbSet<Domain.Entities.Payment> Payments { get; set; }
         public DbSet<PaymentStatus> PaymentStatuses { get; set; }
-        
+
         public PaymentDbContext([NotNull] DbContextOptions<PaymentDbContext> options) : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.CreatePaymentStatusSeed();
         }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken)
