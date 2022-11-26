@@ -26,8 +26,7 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Persistance\DependencyInjection\" />
-    <Folder Include="Persistance\Seed\" />
+    <Folder Include="Application\Features\Commands\" />
     <Folder Include="Service\" />
   </ItemGroup>
 

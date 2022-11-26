@@ -5,6 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 using Booking.Service.Application.Contracts;
 using Booking.Service.Domain.Dictionaries;
 using Booking.Service.Domain.Entities;
+using Booking.Service.Persistance.Seed;
 
 namespace Booking.Service.Persistance.Context
 {
@@ -20,10 +21,15 @@ namespace Booking.Service.Persistance.Context
         {
         }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    base.OnModelCreating(modelBuilder);
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.CreateHotel();
+            modelBuilder.CreateTermStatus();
+            modelBuilder.CreatePaymentStatus();
+            modelBuilder.CreateAvailableTerm();
+        }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken)
         {
