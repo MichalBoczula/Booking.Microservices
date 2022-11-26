@@ -174,6 +174,10 @@ namespace Booking.Service.Persistance.Migrations
                     b.Property<int>("AvailableTermId")
                         .HasColumnType("int");
 
+                    b.Property<string>("OrderIntegrationId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("PaymentStatusId")
                         .HasColumnType("int");
 

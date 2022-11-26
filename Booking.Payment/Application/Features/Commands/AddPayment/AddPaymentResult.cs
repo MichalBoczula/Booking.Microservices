@@ -5,7 +5,7 @@ namespace Booking.Payment.Application.Features.Commands.AddPayment
     public class AddPaymentResult
     {
         public string OrderIntegrationId { get; set; }
-        public PaymentStatus PaymentStatus { get; set; }
+        public PaymentStatusDto PaymentStatus { get; set; }
 
     }
 }

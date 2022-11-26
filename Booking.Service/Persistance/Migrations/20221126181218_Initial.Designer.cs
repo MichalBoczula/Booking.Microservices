@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Booking.Service.Persistance.Migrations
 {
     [DbContext(typeof(BookingServiceDbContext))]
-    [Migration("20221126170430_Initial")]
+    [Migration("20221126181218_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -175,6 +175,10 @@ namespace Booking.Service.Persistance.Migrations
 
                     b.Property<int>("AvailableTermId")
                         .HasColumnType("int");
+
+                    b.Property<string>("OrderIntegrationId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PaymentStatusId")
                         .HasColumnType("int");

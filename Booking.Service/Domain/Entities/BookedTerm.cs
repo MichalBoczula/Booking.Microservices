@@ -8,6 +8,7 @@ namespace Booking.Service.Domain.Entities
         public int AvailableTermId { get; set; }
         public AvailableTerm AvailableTermRef { get; set; }
         public int PaymentStatusId { get; set; }
+        public string OrderIntegrationId { get; set; }
         public PaymentStatus PaymentStatusRef { get; set; }
     }
 }
