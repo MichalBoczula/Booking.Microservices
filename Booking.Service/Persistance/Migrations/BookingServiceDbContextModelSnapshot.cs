@@ -47,6 +47,11 @@ namespace Booking.Service.Persistance.Migrations
                         {
                             Id = 2,
                             Name = "Declined"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Waiting"
                         });
                 });
 

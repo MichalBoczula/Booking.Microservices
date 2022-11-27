@@ -20,6 +20,13 @@ namespace Booking.Service.Persistance.Seed
                     Id = 2,
                     Name = "Declined",
                 });
+
+            modelBuilder.Entity<PaymentStatus>()
+                .HasData(new PaymentStatus
+                {
+                    Id = 3,
+                    Name = "Waiting",
+                });
         }
     }
 }

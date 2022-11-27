@@ -4,7 +4,7 @@
 
 namespace Booking.Service.Persistance.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitialWithSeed : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -118,7 +118,8 @@ namespace Booking.Service.Persistance.Migrations
                 values: new object[,]
                 {
                     { 1, "Accepted" },
-                    { 2, "Declined" }
+                    { 2, "Declined" },
+                    { 3, "Waiting" }
                 });
 
             migrationBuilder.InsertData(

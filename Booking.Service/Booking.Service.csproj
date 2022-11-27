@@ -26,7 +26,7 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Application\Features\Commands\" />
+    <Folder Include="Application\Features\Commands\DeclineTerm\" />
     <Folder Include="Service\" />
   </ItemGroup>
 

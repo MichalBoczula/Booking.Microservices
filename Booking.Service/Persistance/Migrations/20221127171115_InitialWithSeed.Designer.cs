@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Booking.Service.Persistance.Migrations
 {
     [DbContext(typeof(BookingServiceDbContext))]
-    [Migration("20221126181218_Initial")]
-    partial class Initial
+    [Migration("20221127171115_InitialWithSeed")]
+    partial class InitialWithSeed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,6 +49,11 @@ namespace Booking.Service.Persistance.Migrations
                         {
                             Id = 2,
                             Name = "Declined"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Waiting"
                         });
                 });
 
