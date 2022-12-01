@@ -9,16 +9,12 @@ namespace Booking.Payment.Controllers
     [ApiController]
     public class BookingPaymentController : BaseController
     {
-        [HttpGet("GetAvailableTerms")]
-        public async Task<ActionResult> GetAvailableTermsAsync()
+        [HttpPost("AddPayment")]
+        public async Task<ActionResult> AddPaymentCommand(AddPaymentExternal addPaymentExternal)
         {
             var result = await Mediator.Send(new AddPaymentCommand()
             {
-                AddPaymentExternal = new AddPaymentExternal()
-                {
-                    OrderIntegrationId = Guid.NewGuid().ToString(),
-                    Total = 200
-                }
+                AddPaymentExternal = addPaymentExternal
             });
             return Ok(result);
         }

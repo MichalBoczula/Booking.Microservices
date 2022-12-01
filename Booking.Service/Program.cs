@@ -1,5 +1,9 @@
 using Booking.Service.Application.DependencyInjection;
 using Booking.Service.Persistance.DependencyInjection;
+using Booking.Service.Service.DependencyInjection;
+using Booking.Service.Service.SynchCommunication.PaymentAPI.Abstract;
+using Booking.Service.Service.SynchCommunication.PaymentAPI.Concrete;
+using Booking.Service.Service.SynchCommunication.PaymentAPI.Policy;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +15,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddPersistance(builder.Configuration);
 builder.Services.AddApplication();
+builder.Services.AddHttpClient<IPaymentService, PaymentService>()
+     .AddPolicyHandler(PaymentPolicy.GetRetryPolicy())
+     .AddPolicyHandler(PaymentPolicy.GetCircuitBreakerPolicy());
+builder.Services.AddServices();
 
 var app = builder.Build();
 
